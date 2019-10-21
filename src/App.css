@@ -1,22 +1,14 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mainLayout {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 90vh;
+  width: 70%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border: 1px solid grey;
 }
 
-.App-link {
-  color: #09d3ac;
+.listItems {
+  height: 40vh;
+  overflow-y: auto;
+  padding: 20px;
 }
