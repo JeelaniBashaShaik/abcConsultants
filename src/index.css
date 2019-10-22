@@ -28,7 +28,7 @@ body {
 }
 
 .inputContainer {
-  background-color: lightgrey;
+  background-color: cornflowerblue;
 }
 
 .pad20 {
@@ -74,4 +74,8 @@ body {
 
 :disabled{
   cursor: not-allowed;
+}
+
+#listItems > div:nth-child(even) {
+  background-color: rgba(0,0,0,0.08);
 }

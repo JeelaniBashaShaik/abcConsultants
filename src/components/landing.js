@@ -1,15 +1,18 @@
 import React from 'react';
-import axios from './axiosProxy';
+import axios from '../axiosProxy';
 import InputQuery from './inputQuery';
 import FilterQueryComponent from './filterQuery';
 import ListItems from './listItems';
 
-export default class App extends React.Component {
+export default class Landing extends React.Component {
 
-  state = {
-    repoDetails: [],           // to hold the list items
-    repoDetailsBackup: [],     // backup is useful while filtering the list
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      repoDetails: [], // to hold the list items
+      repoDetailsBackup: [], // backup is useful while filtering the list
+    };
+  }
 
   // makes the api call on click of Go button
   fetchRepos = async (userName) => {
@@ -18,10 +21,10 @@ export default class App extends React.Component {
       if (apiResponse.length) {
         this.setState({
           repoDetails: apiResponse,
-          repoDetailsBackup: apiResponse
+          repoDetailsBackup: apiResponse,
         });
       } else {
-        console.log('no repos found'); 
+        console.log('no repos found');
       }
     } catch (error) {
       console.log('error occured', error);
@@ -32,7 +35,7 @@ export default class App extends React.Component {
   clearUserName = () => {
     this.setState({
       repoDetails: [],
-      repoDetailsBackup: []
+      repoDetailsBackup: [],
     });
   }
 
@@ -42,17 +45,14 @@ export default class App extends React.Component {
     if (query === '') {
       this.setState({ repoDetails: repoDetailsBackup }); // in case user erases using backspace
     } else {
-      const queryResult = repoDetailsBackup.filter(repo => {
-        const repoName = repo.name.toLowerCase();  // making sure the search is case-insensitive
+      const queryResult = repoDetailsBackup.filter((repo) => {
+        const repoName = repo.name.toLowerCase(); // making sure the search is case-insensitive
         if (repoName.indexOf(query) > -1) {
-          return repo;   // match found and returning
+          return repo; // match found and returning
         }
         return null;
-      })
-      this.setState({
-        repoDetails: queryResult,
-        searchQuery: query
       });
+      this.setState({ repoDetails: queryResult });
     }
   }
 
@@ -73,17 +73,16 @@ export default class App extends React.Component {
             <FilterQueryComponent
               clearFilter={this.clearFilter}
               filterRepos={this.filterRepos}
-              hasRepos={this.state.repoDetailsBackup.length > 0 ? true : false}
+              hasRepos={this.state.repoDetailsBackup.length > 0}
             />
           </div>
           {
-            this.state.repoDetails.length > 0 ?
-              <ListItems repoDetails={this.state.repoDetails} /> :
-              <div className="pad20">No repositories to list</div>
+            this.state.repoDetails.length > 0
+              ? <div id="listContainer"><ListItems repoDetails={this.state.repoDetails} /></div>
+              : <div className="pad20">No repositories to list</div>
           }
         </div>
       </div>
     );
   }
-
 }

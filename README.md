@@ -1,7 +1,7 @@
 ## Github Fetch
 
-1. uses React as base
-2. axios for http calls
+1. uses React as base with create-react-app
+2. axios for http call
 
 ## Validations
 
@@ -11,6 +11,14 @@
 ## CSS
 
 uses flexbox and CSS Grid for placement
+
+## Testing
+
+uses Jest with Enzyme with reference from https://github.com/airbnb/enzyme#upgrading-from-enzyme-2x-or-react--16
+
+## Linting
+
+uses eslint with airbnb style guide
 
 ## Hosting
 
