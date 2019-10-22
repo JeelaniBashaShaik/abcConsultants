@@ -7,7 +7,71 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.mainLayout {
+  display: flex;
+  height: 90vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.layoutItem {
+  height: 70vh;
+  width: 50%;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+#listItems {
+  height: 50vh;
+  overflow-y: auto;
+}
+
+.inputContainer {
+  background-color: lightgrey;
+}
+
+.pad20 {
+  padding: 20px;
+}
+
+.noBottomPad {
+  padding-bottom: 0px;
+}
+
+.inputRowItem {
+  height: 30px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.goButton {
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+
+.listItem {
+  padding: 0px 20px;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  border-bottom: 1px solid grey;
+}
+
+.inputQuery {
+  display: grid;
+  grid-template-columns: 60% 10% 20%;
+  grid-gap: 20px;
+}
+
+.filterQuery {
+  display: grid;
+  grid-template-columns: 60% 20%;
+  grid-gap: 20px;
+}
+
+:disabled{
+  cursor: not-allowed;
 }

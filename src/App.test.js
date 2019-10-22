@@ -1,9 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
+import './testSetup';
 import App from './App';
+import FilterQueryComponent from './filterQuery';
+import InputQuery from './inputQuery';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('App Component test suite', () => {
+  
+  const container = shallow(<App />);
+  
+  it('should render child components', () => {
+    expect(container.containsMatchingElement(<FilterQueryComponent />));
+    expect(container.containsMatchingElement(<InputQuery />))
+  })
+
+})

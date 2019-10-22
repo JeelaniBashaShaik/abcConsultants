@@ -2,7 +2,7 @@ import React from 'react';
 
 const ListItems = props => {
     return (
-        <div className="listItems">
+        <div id="listItems">
             {
                 props.repoDetails.map(repo => {
                     return (
@@ -14,4 +14,4 @@ const ListItems = props => {
     )
 }
 
-export default ListItems;
+export default React.memo(ListItems);
